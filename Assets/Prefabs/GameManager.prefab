@@ -76,7 +76,7 @@ MonoBehaviour:
   - {fileID: 7033000928770446205, guid: 862ebfdf0e3324f439b840b5ea39b020, type: 3}
   enemyTiles:
   - {fileID: 4569539429720401646, guid: 64fd52d09499d67439975d3244f3d857, type: 3}
-  - {fileID: 1752912285941792927, guid: 14fac81e301551f4bb02cdfd6481104d, type: 3}
+  - {fileID: 5074526491729428335, guid: c0c264a4a265329459e06d3b1f2726f6, type: 3}
   outerWallTiles:
   - {fileID: 3985101357342664688, guid: 4a0a6203e4d1fea4da6679c0e1555aff, type: 3}
   - {fileID: 29892872812542383, guid: 77ae86409b0ddd246bb7418bc8e27676, type: 3}
@@ -93,3 +93,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd3f52c586f60634494816b7325ed18f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turnDelay: 0.1
+  playerFoodPoints: 100
+  playersTurn: 1
