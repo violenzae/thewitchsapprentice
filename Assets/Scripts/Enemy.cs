@@ -10,7 +10,8 @@ public class Enemy : MovingObject
     private Animator animator;                            //Variable of type Animator to store a reference to the enemy's Animator component.
     private Transform target;                            //Transform to attempt to move toward each turn.
     private bool skipMove;                                //Boolean to determine whether or not enemy should skip a turn or move this turn.
-
+    public AudioClip enemyAttack1;
+    public AudioClip enemyAttack2;
 
     //Start overrides the virtual Start function of the base class.
     protected override void Start()
@@ -86,6 +87,7 @@ public class Enemy : MovingObject
 
         //Set the attack trigger of animator to trigger Enemy attack animation.
         animator.SetTrigger("enemyAttack");
+        SoundManager.instance.RandomizeSfx(enemyAttack1, enemyAttack2);
 
     }
 }

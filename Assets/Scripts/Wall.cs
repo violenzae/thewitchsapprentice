@@ -6,7 +6,8 @@ public class Wall : MonoBehaviour
 
     public Sprite dmgSprite;                    //Alternate sprite to display after Wall has been attacked by player.
     public int hp = 4;                            //hit points for the wall.
-
+    public AudioClip chopSound1;
+    public AudioClip chopSound2;
 
     private SpriteRenderer spriteRenderer;        //Store a component reference to the attached SpriteRenderer.
 
