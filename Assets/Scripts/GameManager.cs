@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
     public int playerFoodPoints = 100;
     [HideInInspector] public bool playersTurn = true;
 
-
     private Text levelText;
     private GameObject levelImage;
     private int level = 1;                                    //Current level number, expressed in game as "Day 1".
