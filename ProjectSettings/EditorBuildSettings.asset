@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/StartButton.unity
-    guid: bfdb5b18a0cf84bf88ea56a7793b0291
-  - enabled: 1
     path: Assets/seen.unity
     guid: 57f38d422bc887d408f02896f0171e99
+  - enabled: 1
+    path: Assets/StartButton.unity
+    guid: bfdb5b18a0cf84bf88ea56a7793b0291
+  - enabled: 0
+    path: Assets/Scenes/Main Menu.unity
+    guid: d86a8c1c9bd254173beac3da3716736c
   m_configObjects: {}
