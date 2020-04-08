@@ -17,15 +17,31 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.32, y: 0.32}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-9141902017420492354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724957389792382227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a18d8c0cffd2d046bb276b5a8b8254d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmgSprite: {fileID: 0}
+  hp: 4
+  chopSound1: {fileID: 8300000, guid: 4c2332bc8245b474dad63074059bb755, type: 3}
+  chopSound2: {fileID: 8300000, guid: f6aaac83be9e0493493aace800b76619, type: 3}
 --- !u!1001 &1290806172474536837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62,17 +78,17 @@ PrefabInstance:
     - target: {fileID: 8599619352849551686, guid: d2973fed7761b4368a3748a1edc88f69,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 508.91403
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8599619352849551686, guid: d2973fed7761b4368a3748a1edc88f69,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 218.7358
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8599619352849551686, guid: d2973fed7761b4368a3748a1edc88f69,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1466.0084
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8599619352849551686, guid: d2973fed7761b4368a3748a1edc88f69,
         type: 3}
