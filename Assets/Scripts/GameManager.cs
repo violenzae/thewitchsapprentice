@@ -48,7 +48,13 @@ public class GameManager : MonoBehaviour
         InitGame();
     }
 
-    void OnLevelFinishedLoading(Scene scene, LoadSceneMode
+    private void OnLevelWasLoaded(int index)
+    {
+        level++;
+        InitGame();
+    }
+
+/*    void OnLevelFinishedLoading(Scene scene, LoadSceneMode
 mode)
     { //Add one to our level number.
         level++;
@@ -68,7 +74,7 @@ mode)
        
         SceneManager.sceneLoaded -= OnLevelFinishedLoading;
     }
-
+*/
 
 //Initializes the game for each level.
     void InitGame()
