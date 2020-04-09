@@ -23,13 +23,15 @@ using Random = UnityEngine.Random;         //Tells Random to use the Unity Engin
       }
 
 
-      public int columns = 8;                                         //Number of columns in our game board.
-      public int rows = 8;                                            //Number of rows in our game board.
-      public Count wallCount = new Count(5, 9);                        //Lower and upper limit for our random number of walls per level.
-      public Count foodCount = new Count(1, 5);                        //Lower and upper limit for our random number of food items per level.
+      public int columns = 16;                                         //Number of columns in our game board.
+      public int rows = 9;                                            //Number of rows in our game board.
+      public Count wallCount = new Count(15, 20);                        //Lower and upper limit for our random number of walls per level.
+      public Count foodCount = new Count(4, 9);                        //Lower and upper limit for our random number of food items per level.
       public GameObject[] exitTiles;                                            //Prefab to spawn for exit.
       public GameObject[] floorTiles;                                    //Array of floor prefabs.
-      public GameObject[] wallTiles;                                    //Array of wall prefabs.
+      public GameObject[] wallTiles;                                    //First Array of wall prefabs.
+      public GameObject[] wallTilesOne;                                 //Second Array of wall prefabs.
+      public GameObject[] wallTilesTwo;                                 //Third Array of wall prefabs.
       public GameObject[] foodTiles;                                    //Array of food prefabs.
       public GameObject[] enemyTiles;                                    //Array of enemy prefabs.
       public GameObject[] outerWallTiles;                                //Array of outer tile prefabs.
@@ -58,6 +60,7 @@ using Random = UnityEngine.Random;         //Tells Random to use the Unity Engin
 
 
       //Sets up the outer walls and floor (background) of the game board.
+      //Original Level theme
       void BoardSetup()
       {
           //Instantiate Board and set boardHolder to its transform.
@@ -70,11 +73,67 @@ using Random = UnityEngine.Random;         //Tells Random to use the Unity Engin
               for (int y = -1; y < rows + 1; y++)
               {
                   //Choose a random tile from our array of floor tile prefabs and prepare to instantiate it.
-                  GameObject toInstantiate = floorTiles[Random.Range(0, floorTiles.Length)];
+                  GameObject toInstantiate = floorTiles[Random.Range(0, 7)];
 
                   //Check if we current position is at board edge, if so choose a random outer wall prefab from our array of outer wall tiles.
                   if (x == -1 || x == columns || y == -1 || y == rows)
-                      toInstantiate = outerWallTiles[Random.Range(0, outerWallTiles.Length)];
+                      toInstantiate = outerWallTiles[Random.Range(0, 2)];
+
+                  //Instantiate the GameObject instance using the prefab chosen for toInstantiate at the Vector3 corresponding to current grid position in loop, cast it to GameObject.
+                  GameObject instance =
+                      Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.identity) as GameObject;
+
+                  //Set the parent of our newly instantiated object instance to boardHolder, this is just organizational to avoid cluttering hierarchy.
+                  instance.transform.SetParent(boardHolder);
+              }
+          }
+      }
+      //Level Theme one
+      void BoardSetupOne()
+      {
+          //Instantiate Board and set boardHolder to its transform.
+          boardHolder = new GameObject("Board").transform;
+
+          //Loop along x axis, starting from -1 (to fill corner) with floor or outerwall edge tiles.
+          for (int x = -1; x < columns + 1; x++)
+          {
+              //Loop along y axis, starting from -1 to place floor or outerwall tiles.
+              for (int y = -1; y < rows + 1; y++)
+              {
+                  //Choose a random tile from our array of floor tile prefabs and prepare to instantiate it.
+                  GameObject toInstantiate = floorTiles[Random.Range(8, 15)];
+
+                  //Check if we current position is at board edge, if so choose a random outer wall prefab from our array of outer wall tiles.
+                  if (x == -1 || x == columns || y == -1 || y == rows)
+                      toInstantiate = outerWallTiles[Random.Range(3, 6)];
+
+                  //Instantiate the GameObject instance using the prefab chosen for toInstantiate at the Vector3 corresponding to current grid position in loop, cast it to GameObject.
+                  GameObject instance =
+                      Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.identity) as GameObject;
+
+                  //Set the parent of our newly instantiated object instance to boardHolder, this is just organizational to avoid cluttering hierarchy.
+                  instance.transform.SetParent(boardHolder);
+              }
+          }
+      }
+      //Level Theme two
+      void BoardSetupTwo()
+      {
+          //Instantiate Board and set boardHolder to its transform.
+          boardHolder = new GameObject("Board").transform;
+
+          //Loop along x axis, starting from -1 (to fill corner) with floor or outerwall edge tiles.
+          for (int x = -1; x < columns + 1; x++)
+          {
+              //Loop along y axis, starting from -1 to place floor or outerwall tiles.
+              for (int y = -1; y < rows + 1; y++)
+              {
+                  //Choose a random tile from our array of floor tile prefabs and prepare to instantiate it.
+                  GameObject toInstantiate = floorTiles[Random.Range(16, 22)];
+
+                  //Check if we current position is at board edge, if so choose a random outer wall prefab from our array of outer wall tiles.
+                  if (x == -1 || x == columns || y == -1 || y == rows)
+                      toInstantiate = outerWallTiles[Random.Range(7, 11)];
 
                   //Instantiate the GameObject instance using the prefab chosen for toInstantiate at the Vector3 corresponding to current grid position in loop, cast it to GameObject.
                   GameObject instance =
@@ -124,18 +183,42 @@ using Random = UnityEngine.Random;         //Tells Random to use the Unity Engin
           }
       }
 
-
       //SetupScene initializes our level and calls the previous functions to lay out the game board
       public void SetupScene(int level)
       {
-          //Creates the outer walls and floor.
-          BoardSetup();
+          if(level == 1 || level % 5 == 0)
+          {
+            BoardSetup();
+          }
+
+          else if(level % 2 == 0)
+          {
+            BoardSetupOne();
+          }
+          else
+          {
+            BoardSetupTwo();
+          }
+
 
           //Reset our list of gridpositions.
           InitialiseList();
 
           //Instantiate a random number of wall tiles based on minimum and maximum, at randomized positions.
-          LayoutObjectAtRandom(wallTiles, wallCount.minimum, wallCount.maximum);
+          if(level == 1 || level % 5 == 0)
+          {
+            LayoutObjectAtRandom(wallTiles, wallCount.minimum, wallCount.maximum);
+          }
+          else if(level % 2 == 0)
+          {
+            LayoutObjectAtRandom(wallTilesOne, wallCount.minimum, wallCount.maximum);
+          }
+          else
+          {
+            LayoutObjectAtRandom(wallTilesTwo, wallCount.minimum, wallCount.maximum);
+          }
+
+
 
           //Instantiate a random number of food tiles based on minimum and maximum, at randomized positions.
           LayoutObjectAtRandom(foodTiles, foodCount.minimum, foodCount.maximum);

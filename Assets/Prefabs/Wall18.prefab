@@ -38,7 +38,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a18d8c0cffd2d046bb276b5a8b8254d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmgSprite: {fileID: 0}
+  dmgSprite: {fileID: 21300000, guid: 56a3ed1ec37324a2ea69fb0ee63310d4, type: 3}
   hp: 4
   chopSound1: {fileID: 8300000, guid: 4c2332bc8245b474dad63074059bb755, type: 3}
   chopSound2: {fileID: 8300000, guid: f6aaac83be9e0493493aace800b76619, type: 3}
