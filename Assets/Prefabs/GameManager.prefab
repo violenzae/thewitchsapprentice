@@ -53,7 +53,7 @@ MonoBehaviour:
     minimum: 1
     maximum: 5
   exitTiles:
-  - {fileID: 6475690125332960158, guid: eaa10960c3ca5334b8879e7bcad5364e, type: 3}
+  - {fileID: 1779842845178447178, guid: 4ee78cffc6f105b409a95c643a0b96a4, type: 3}
   - {fileID: 1782602435920630734, guid: 20b394adfaee24d47a09bdcc472cccfc, type: 3}
   - {fileID: 9046468130278606139, guid: 003979e77821c224dae2eaa3a41ea4db, type: 3}
   floorTiles:
