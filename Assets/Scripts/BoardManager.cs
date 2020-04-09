@@ -24,7 +24,7 @@ using Random = UnityEngine.Random;         //Tells Random to use the Unity Engin
 
 
       public int columns = 16;                                         //Number of columns in our game board.
-      public int rows = 9;                                            //Number of rows in our game board.
+      public int rows = 10;                                            //Number of rows in our game board.
       public Count wallCount = new Count(15, 20);                        //Lower and upper limit for our random number of walls per level.
       public Count foodCount = new Count(4, 9);                        //Lower and upper limit for our random number of food items per level.
       public GameObject[] exitTiles;                                            //Prefab to spawn for exit.
