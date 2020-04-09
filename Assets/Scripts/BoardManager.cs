@@ -32,6 +32,10 @@ using Random = UnityEngine.Random;         //Tells Random to use the Unity Engin
       public GameObject[] wallTiles;                                    //First Array of wall prefabs.
       public GameObject[] wallTilesOne;                                 //Second Array of wall prefabs.
       public GameObject[] wallTilesTwo;                                 //Third Array of wall prefabs.
+      public GameObject[] wallTilesThree;                                 //Fourth Array of wall prefabs.
+      public GameObject[] wallTilesFour;                                    //Fifth Array of wall prefabs.
+      public GameObject[] wallTilesFive;                                    //Sixth Array of wall prefabs.
+      public GameObject[] wallTilesSix;                                    //Seventh Array of wall prefabs.
       public GameObject[] foodTiles;                                    //Array of food prefabs.
       public GameObject[] enemyTiles;                                    //Array of enemy prefabs.
       public GameObject[] outerWallTiles;                                //Array of outer tile prefabs.
@@ -145,6 +149,62 @@ using Random = UnityEngine.Random;         //Tells Random to use the Unity Engin
           }
       }
 
+      void BoardSetupFour()
+      {
+          //Instantiate Board and set boardHolder to its transform.
+          boardHolder = new GameObject("Board").transform;
+
+          //Loop along x axis, starting from -1 (to fill corner) with floor or outerwall edge tiles.
+          for (int x = -1; x < columns + 1; x++)
+          {
+              //Loop along y axis, starting from -1 to place floor or outerwall tiles.
+              for (int y = -1; y < rows + 1; y++)
+              {
+                  //Choose a random tile from our array of floor tile prefabs and prepare to instantiate it.
+                  GameObject toInstantiate = floorTiles[Random.Range(33, 40)];
+
+                  //Check if we current position is at board edge, if so choose a random outer wall prefab from our array of outer wall tiles.
+                  if (x == -1 || x == columns || y == -1 || y == rows)
+                      toInstantiate = outerWallTiles[Random.Range(16, 20)];
+
+                  //Instantiate the GameObject instance using the prefab chosen for toInstantiate at the Vector3 corresponding to current grid position in loop, cast it to GameObject.
+                  GameObject instance =
+                      Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.identity) as GameObject;
+
+                  //Set the parent of our newly instantiated object instance to boardHolder, this is just organizational to avoid cluttering hierarchy.
+                  instance.transform.SetParent(boardHolder);
+              }
+          }
+      }
+
+      void BoardSetupFive()
+      {
+          //Instantiate Board and set boardHolder to its transform.
+          boardHolder = new GameObject("Board").transform;
+
+          //Loop along x axis, starting from -1 (to fill corner) with floor or outerwall edge tiles.
+          for (int x = -1; x < columns + 1; x++)
+          {
+              //Loop along y axis, starting from -1 to place floor or outerwall tiles.
+              for (int y = -1; y < rows + 1; y++)
+              {
+                  //Choose a random tile from our array of floor tile prefabs and prepare to instantiate it.
+                  GameObject toInstantiate = floorTiles[Random.Range(41, 47)];
+
+                  //Check if we current position is at board edge, if so choose a random outer wall prefab from our array of outer wall tiles.
+                  if (x == -1 || x == columns || y == -1 || y == rows)
+                      toInstantiate = outerWallTiles[Random.Range(21, 26)];
+
+                  //Instantiate the GameObject instance using the prefab chosen for toInstantiate at the Vector3 corresponding to current grid position in loop, cast it to GameObject.
+                  GameObject instance =
+                      Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.identity) as GameObject;
+
+                  //Set the parent of our newly instantiated object instance to boardHolder, this is just organizational to avoid cluttering hierarchy.
+                  instance.transform.SetParent(boardHolder);
+              }
+          }
+      }
+
 
       //RandomPosition returns a random position from our list gridPositions.
       Vector3 RandomPosition()
@@ -190,8 +250,15 @@ using Random = UnityEngine.Random;         //Tells Random to use the Unity Engin
           {
             BoardSetup();
           }
-
+          else if(level % 4 == 0)
+          {
+            BoardSetupFive();
+          }
           else if(level % 2 == 0)
+          {
+            BoardSetupFour();
+          }
+          else if(level % 3 == 0)
           {
             BoardSetupOne();
           }
@@ -209,7 +276,15 @@ using Random = UnityEngine.Random;         //Tells Random to use the Unity Engin
           {
             LayoutObjectAtRandom(wallTiles, wallCount.minimum, wallCount.maximum);
           }
+          else if(level % 4 == 0)
+          {
+            LayoutObjectAtRandom(wallTilesFive, wallCount.minimum, wallCount.maximum);
+          }
           else if(level % 2 == 0)
+          {
+            LayoutObjectAtRandom(wallTilesFour, wallCount.minimum, wallCount.maximum);
+          }
+          else if(level % 3 == 0)
           {
             LayoutObjectAtRandom(wallTilesOne, wallCount.minimum, wallCount.maximum);
           }
@@ -230,6 +305,6 @@ using Random = UnityEngine.Random;         //Tells Random to use the Unity Engin
           LayoutObjectAtRandom(enemyTiles, enemyCount, enemyCount);
 
           //Instantiate the exit tile in the upper right hand corner of our game board
-          LayoutObjectAtRandom(exitTiles, 0, 1);
+          LayoutObjectAtRandom(exitTiles, 1, 1);
       }
   }
