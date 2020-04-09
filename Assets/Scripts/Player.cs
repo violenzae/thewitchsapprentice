@@ -164,7 +164,7 @@ public class Player : MovingObject
     private void Restart()
     {
         //Load the last scene loaded, in this case Main, the only scene in the game.
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
 
