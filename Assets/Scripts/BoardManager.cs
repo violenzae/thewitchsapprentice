@@ -230,6 +230,6 @@ using Random = UnityEngine.Random;         //Tells Random to use the Unity Engin
           LayoutObjectAtRandom(enemyTiles, enemyCount, enemyCount);
 
           //Instantiate the exit tile in the upper right hand corner of our game board
-          LayoutObjectAtRandom(exitTiles, 1, 1);
+          LayoutObjectAtRandom(exitTiles, 0, 1);
       }
   }

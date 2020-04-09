@@ -55,6 +55,7 @@ MonoBehaviour:
   exitTiles:
   - {fileID: 6475690125332960158, guid: eaa10960c3ca5334b8879e7bcad5364e, type: 3}
   - {fileID: 1782602435920630734, guid: 20b394adfaee24d47a09bdcc472cccfc, type: 3}
+  - {fileID: 9046468130278606139, guid: 003979e77821c224dae2eaa3a41ea4db, type: 3}
   floorTiles:
   - {fileID: 1105519843646856154, guid: 3177b56499ed2224790643ff8237b95d, type: 3}
   - {fileID: 8089713655821125331, guid: fcd3fd35898e3c146b0289d200aaddb9, type: 3}
