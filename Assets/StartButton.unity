@@ -712,7 +712,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 0.5
+  m_PixelsPerUnitMultiplier: 0.45
 --- !u!222 &1052661369
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -862,7 +862,7 @@ GameObject:
   - component: {fileID: 1749101104}
   - component: {fileID: 1749101103}
   m_Layer: 5
-  m_Name: Image
+  m_Name: YRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -935,7 +935,7 @@ GameObject:
   - component: {fileID: 2038575421}
   - component: {fileID: 2038575420}
   m_Layer: 5
-  m_Name: Image
+  m_Name: YLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
